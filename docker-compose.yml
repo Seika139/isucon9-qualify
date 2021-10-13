@@ -10,8 +10,7 @@ services:
       - 127.0.0.1:8000:8000
     environment:
       - MYSQL_HOST=db
-      - MYSQL_USER=root
-      - MYSQL_PASS=secret
+      - MYSQL_PASS=msql_pass
   db:
     image: mysql:5.7
     volumes:
@@ -19,9 +18,8 @@ services:
       - ./webapp/sql/conf:/etc/mysql/conf.d
       - ./datadir:/var/lib/mysql
     environment:
-      - MYSQL_ROOT_PASSWORD=secret
+      - MYSQL_ROOT_PASSWORD=mysql_root_password
       - MYSQL_HOST=127.0.0.1
-      - MYSQL_USER=root
-      - MYSQL_PASS=secret
+      - MYSQL_PASS=mysql_pass
     ports:
       - 127.0.0.1:3307:3306
